@@ -1,0 +1,54 @@
+.card-div {
+    border: 1px solid rgb(46, 30, 47);
+    border-radius: 6vh;
+    margin-bottom: 6vh;
+    width: 44vh;
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fff;
+}
+  
+h4 {
+    margin-bottom: 0;
+}
+
+p {
+    margin-bottom: 4vh;
+}
+
+img {
+    height: 40vh;
+    width: 40vh;
+    object-fit: cover;
+    border-radius: 6vh;
+}
+
+button {
+    height: 6vh;
+    width: 20vh;
+    background-color: rgb(255, 158, 255);
+    border-radius: 2vh;
+    cursor: pointer;
+    font-size: 16px;
+    font-stretch: ultra-expanded;
+    margin-bottom: 2vh;
+}
+
+button:hover {
+    background-color: rgb(255, 202, 255); 
+    transition: 0.7s;
+}
+
+button:focus {
+    border: 1px solid rgb(46, 30, 47);
+}
+
+button:active {
+    background-color: rgb(46, 30, 47);
+    color: #fff;
+}
