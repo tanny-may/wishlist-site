@@ -4,11 +4,7 @@ function Navigation(props) {
     return (
         <nav className="menu">
             <ul className='nav-ul'>
-                <li className='nav-li'><a href="#" className='nav-a activeMenu'>Stickers</a></li>
-                <li className='nav-li'><a href="#" className='nav-a'>Toys</a></li>
-                <li className='nav-li'><a href="#" className='nav-a'>Pillows</a></li>
-                <li className='nav-li'><a href="#" className='nav-a'>T-shirts</a></li>
-                <li className='nav-li'><a href="#" className='nav-a'>Posters</a></li>
+                {props.pages.map(el => <li key={el} onClick={props.handlerSetPage} className='nav-li'><a href='/#' className={props.currentPage === el.toLowerCase() ? 'nav-a activeMenu' : 'nav-a'}>{el}</a></li>)}
             </ul>
         </nav>
     );
