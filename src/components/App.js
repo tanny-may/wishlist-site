@@ -89,39 +89,44 @@ const defaultToysFilter = 'All toys';
 
 const pillows = [
   {
-    name: "",
-    src: "",
-    parameter: "",
+    name: "Bubu on pony",
+    src: "https://ae04.alicdn.com/kf/S64ddbe993f994f84977a0b81b011a113P.jpg_640x640.jpg",
+    parameter: "White pillows",
   },
   {
-    name: "",
-    src: "",
-    parameter: "",
+    name: "night",
+    src: "https://ae04.alicdn.com/kf/S64b8b6336eec45909bc63472ef661751I.jpg_640x640.jpg",
+    parameter: "Colorful pillows",
   },
   {
-    name: "",
-    src: "",
-    parameter: "",
+    name: "Dudu on pony",
+    src: "https://ae04.alicdn.com/kf/S4c381fbcef9445ffaec49ebf699909079.jpg_640x640.jpg",
+    parameter: "White pillows",
   },
   {
-    name: "",
-    src: "",
-    parameter: "",
+    name: "take a photo",
+    src: "https://ae04.alicdn.com/kf/S98dbe1ec8f964065b18195f89ebe90a7Y.jpg_640x640.jpg",
+    parameter: "Colorful pillows",
   },
   {
-    name: "",
-    src: "",
-    parameter: "",
+    name: "Bubu on pillows",
+    src: "https://ae04.alicdn.com/kf/Sb6cbacc21b9f4bbda29e94b3cac01588U.jpg_640x640.jpg",
+    parameter: "White pillows",
   },
   {
-    name: "",
-    src: "",
-    parameter: "",
+    name: "sleep",
+    src: "https://ae04.alicdn.com/kf/S8072b1a989d2413a8d6e9b9e53eda88dB.jpg_640x640.jpg",
+    parameter: "Colorful pillows",
   },
   {
-    name: "",
-    src: "",
-    parameter: "",
+    name: "with scarves",
+    src: "https://ae04.alicdn.com/kf/Sdb5e5ec3010540c2b15af79f7f4e65c8F.jpg_640x640.jpg",
+    parameter: "White pillows",
+  },
+  {
+    name: "smartphones",
+    src: "https://ae04.alicdn.com/kf/S53248b14abeb4e5fae005a7ffb0f86a4y.jpg_640x640.jpg",
+    parameter: "Colorful pillows",
   },
 ];
 const pillowsFilters = ['All pillows', 'White pillows', 'Colorful pillows'];
@@ -216,10 +221,9 @@ function App() {
   
   const [page, setPage] = useState(pages[0]);
   function handleSetPage(event) {
-    console.log(event)
      setPage(event.target.textContent.trim().toLowerCase())
   }
-  console.log('APP', page);
+ 
   let data, filterValues, defaultFilter;
   switch(page) {
     case 'toys':
@@ -241,7 +245,7 @@ function App() {
       break;
 
     case 'posters':
-      data = toys;
+      data = posters;
       filterValues = postersFilters;
       defaultFilter = defaultPostersFilter;
       break;

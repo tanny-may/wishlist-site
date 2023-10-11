@@ -6,6 +6,10 @@ import ShoppingCart from './ShoppingCart';
 
 function Content(props) {
     const [filter, setFilter] = useState(props.defaultFilter.toLowerCase());
+
+    if (!props.filterValues.map(f => f.toLowerCase()).includes(filter)) {
+        setFilter(props.defaultFilter.toLowerCase());
+    }
     
     let data = props.data;
     if (filter.toLowerCase() !== props.defaultFilter.toLowerCase()) {
