@@ -24,6 +24,130 @@ h1 {
   vertical-align: middle;
   color: rgb(46, 30, 47);
 }
+                                            /* NAVIGATION COMPONENT STYLES */
+.nav-ul {
+  display: flex;
+  justify-content: space-between;
+  padding-inline-start: 15vh;
+  padding-inline-end: 15vh;
+  list-style: none;
+  font-size: 20px;
+  background-color: rgb(255, 158, 255);
+  border-radius: 3vh;
+}
 
+.nav-li {
+  width: 30vh;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 3vh;
+}
+
+.nav-li:hover {
+  border: 1px solid rgb(46, 30, 47);
+}
+
+.nav-a {
+  text-decoration: none;
+  color: rgb(46, 30, 47);
+}
+
+.activeMenu {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgb(46, 30, 47);
+}
+
+                                            /* CONTENT COMPONENT STYLES */
+.content-div {
+  justify-content : space-between;
+  flex-wrap: wrap;
+  margin-top: 4vh;
+}
+
+.filtersAndCart {
+  display: flex;
+  justify-content : space-between;
+  align-items: baseline
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+                                            /* FILTERS COMPONENT STYLES */
+.filter {
+  width: fit-content;
+  font-size: 12px;
+  background-color: rgb(255, 203, 255);
+}
+
+.activeFilter {
+  width: fit-content;
+  font-size: 12px;
+  color: #fff;
+  background-color: rgb(255, 158, 255);
+}
+
+                                            /* CARD COMPONENT STYLES */
+.card-div {
+  border: 1px solid rgb(46, 30, 47);
+  border-radius: 6vh;
+  margin-top: 4vh;
+  margin-bottom: 2vh;
+  width: 44vh;
+  padding: 2vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fff;
+}
+
+.card-h4 {
+  margin-bottom: 0;
+}
+
+.card-p {
+  margin-bottom: 4vh;
+}
+
+.card-img {
+  height: 40vh;
+  width: 40vh;
+  object-fit: cover;
+  border-radius: 6vh;
+}
+
+.card-button {
+  height: 6vh;
+  width: 20vh;
+  background-color: rgb(255, 158, 255);
+  border-radius: 2vh;
+  cursor: pointer;
+  font-size: 16px;
+  font-stretch: ultra-expanded;
+  margin-bottom: 2vh;
+}
+
+.card-button:hover {
+  background-color: rgb(255, 202, 255); 
+  transition: 0.7s;
+}
+
+.card-button:focus {
+  border: 1px solid rgb(46, 30, 47);
+}
+
+.card-button:active {
+  background-color: rgb(46, 30, 47);
+  color: #fff;
+}
 
 

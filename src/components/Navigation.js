@@ -1,15 +1,14 @@
 import React from 'react';
-import './Navigation.css';
 
 function Navigation(props) {
     return (
         <nav className="menu">
-            <ul>
-                <li ><a href="#" className='activeMenu'>Stickers</a></li>
-                <li><a href="#">Toys</a></li>
-                <li><a href="#">Pillows</a></li>
-                <li><a href="#">T-shirts</a></li>
-                <li><a href="#">Posters</a></li>
+            <ul className='nav-ul'>
+                <li className='nav-li'><a href="#" className='nav-a activeMenu'>Stickers</a></li>
+                <li className='nav-li'><a href="#" className='nav-a'>Toys</a></li>
+                <li className='nav-li'><a href="#" className='nav-a'>Pillows</a></li>
+                <li className='nav-li'><a href="#" className='nav-a'>T-shirts</a></li>
+                <li className='nav-li'><a href="#" className='nav-a'>Posters</a></li>
             </ul>
         </nav>
     );

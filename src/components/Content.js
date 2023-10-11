@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import './Content.css';
 import Card from './Card';
 import Filters from './Filters';
 import ShoppingCart from './ShoppingCart';
-
-
 
 
 const filterButtons = ['All stickers', 'Transparent background', 'Colorful background']
@@ -14,12 +11,11 @@ function Content(props) {
     
     let images = props.images;
     if (filter.toLowerCase() !== 'all stickers') {
-      console.log(filter.toLowerCase(), 'any background')
         images = images.filter(el => el.shape.toLowerCase() === filter)
     }
 
     return (
-        <div>
+        <div className='content-div'>
             <div className='filtersAndCart'>
                 <Filters filter={filter} filterButtons ={filterButtons} handleFilterClick={(event => setFilter(event.target.textContent.trim().toLowerCase()))}/>
                 <ShoppingCart/>
