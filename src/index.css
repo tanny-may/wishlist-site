@@ -6,6 +6,14 @@ body {
   background-color: rgb(254, 242, 254);
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 0px 0px 6px rgb(46, 30, 47);
+}
+
 div {
   text-align: center;
 }
@@ -128,28 +136,46 @@ h1 {
 
 .card-button {
   height: 6vh;
-  width: 20vh;
+  width: 30vh;
   background-color: rgb(255, 158, 255);
   border-radius: 2vh;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-stretch: ultra-expanded;
   margin-bottom: 2vh;
   box-shadow: 5px 5px 5px 0px rgba(255, 101, 252, 0.349);
 }
 
-.card-button:hover {
+/* .card-button:hover {
   background-color: rgb(255, 202, 255); 
   transition: 0.7s;
 }
 
-.card-button:focus {
-  border: 1px solid rgb(46, 30, 47);
-}
-
 .card-button:active {
-  background-color: rgb(46, 30, 47);
-  color: #fff;
+  background-color: rgb(104, 67, 107);
+  color: #fff; */
+/* } */
+
+                                            /* WISHLIST COMPONENT STYLES */
+.wishlist-div {
+  /* display: none; */
+  border-radius: 6vh;
+  border: 1px solid rgb(46, 30, 47);
+  box-shadow: 5px 5px 15px 5px rgba(255, 101, 252, 0.349);
+  padding: 10vh;
+  width: 140vh;
 }
 
+.wishlist-h1 {
+  font-size: larger;
+}
 
+.headerAndClose {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonsWishlist {
+  display: flex;
+  justify-content: space-between;
+}
