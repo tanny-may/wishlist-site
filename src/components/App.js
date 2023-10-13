@@ -89,7 +89,7 @@ const toys = [
     parameter: "Plastic toy",
   },
 ];
-const toysFilters = ['All toys', 'Soft toys', 'Plastic toys'];
+const toysFilters = ['All toys', 'Soft toy', 'Plastic toy'];
 const defaultToysFilter = 'All toys';
 
 const pillows = [
@@ -134,7 +134,7 @@ const pillows = [
     parameter: "Colorful pillow",
   },
 ];
-const pillowsFilters = ['All pillows', 'White pillows', 'Colorful pillows'];
+const pillowsFilters = ['All pillows', 'White pillow', 'Colorful pillow'];
 const defaultPillowsFilter = 'All pillows';
 
 const tshirts = [
@@ -179,7 +179,7 @@ const tshirts = [
     parameter: "Male T-shirt",
   },
 ];
-const tshirtsFilters = ['All T-shirts', 'Male T-shirts', 'Female T-shirts'];
+const tshirtsFilters = ['All T-shirts', 'Male T-shirt', 'Female T-shirt'];
 const defaultTshirtsFilter = 'All T-shirts';
 
 const posters = [

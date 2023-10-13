@@ -11,7 +11,7 @@ a {
 }
 
 a:hover {
-  text-shadow: 0px 0px 6px rgb(46, 30, 47);
+  text-shadow: 0px 0px 6px rgb(171, 111, 175);
 }
 
 div {
@@ -24,6 +24,11 @@ button {
   background-color: rgba(255, 158, 255, 0.129);
   border-radius: 1vh;
   border: 0px;
+  letter-spacing: 0.2vh;
+}
+
+button:hover {
+  box-shadow: 5px 5px 5px 0px rgba(255, 101, 252, 0.162);
 }
 
 h1 {
@@ -59,7 +64,6 @@ h1 {
 }
 
 .nav-a {
-  text-decoration: none;
   color: rgb(46, 30, 47);
 }
 
@@ -158,24 +162,68 @@ h1 {
 
                                             /* WISHLIST COMPONENT STYLES */
 .wishlist-div {
-  /* display: none; */
+  display: flex;
   border-radius: 6vh;
   border: 1px solid rgb(46, 30, 47);
   box-shadow: 5px 5px 15px 5px rgba(255, 101, 252, 0.349);
   padding: 10vh;
-  width: 140vh;
+  width: 120vh;
 }
 
 .wishlist-h1 {
   font-size: larger;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .headerAndClose {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0;
 }
 
 .buttonsWishlist {
   display: flex;
   justify-content: space-between;
+}
+
+.wishlistClose {
+  all: unset;
+  cursor: pointer;
+}
+
+.wishlistClose:hover {
+  all: unset;
+  
+}
+
+.wishlistCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 6vh;
+}
+
+.cardWishlist-div {
+  width: 22vh;
+  border-radius: 4vh;
+  margin-right: 2vh;
+}
+
+.cardWishlist-img {
+  width: 18vh;
+  height: 18vh;
+  border-radius: 2vh;
+}
+
+.cardWishlist-h4 {
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+}
+
+.cardWishlist-button {
+  width: 16vh;
+  height: 4vh;
+  border-radius: 1vh;
 }

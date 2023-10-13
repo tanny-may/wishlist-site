@@ -7,6 +7,7 @@ import WishList from './WishList';
 function Content(props) {
     const [filter, setFilter] = useState(props.defaultFilter.toLowerCase());
     const [wishlist, setWishlist] = useState([]);   
+    const [visible, setVisible] = useState(false);
 
     function addToWishList(item) {
         function handler () {
@@ -30,15 +31,13 @@ function Content(props) {
     if (filter.toLowerCase() !== props.defaultFilter.toLowerCase()) {
         data = data.filter(el => el.parameter.toLowerCase() === filter)
     }
-    console.log(wishlist);
 
-    const [visible, setVisible] = useState(false);
 
     return (
         <div className='content-div'>
             <div className='filtersAndCart'>
                 <Filters filter={filter} filterButtons ={props.filterValues} handleFilterClick={(event => setFilter(event.target.textContent.trim().toLowerCase()))}/>
-                <button onClick={()=>setVisible(true)}>Wishlist❤️</button>
+                <button onClick={()=>setVisible(true)}>Wishlist❤️<span>{wishlist.length}</span></button>
             </div>
 
             <div className='cards'>
@@ -58,7 +57,7 @@ function Content(props) {
                 
             </div>
 
-            <WishList visible={visible} setVisible={setVisible}></WishList>
+            <WishList visible={visible} setVisible={setVisible} wishlist={wishlist} deleteFromWishList={deleteFromWishList} setWishlist={setWishlist}></WishList>
         </div>
     );
 }
