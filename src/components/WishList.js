@@ -6,7 +6,7 @@ function Wishlist({visible, setVisible, wishlist, setWishlist, deleteFromWishLis
         <div className='wishlist-div' style={{display: visible ? 'block' : 'none'}}>
             <div className='headerAndClose'>
                 <h1 className='wishlist-h1'>My Wishlist</h1>
-                <button className='wishlistClose' onClick={() => setVisible(false)}><span>❌</span></button>   
+                <button onClick={() => setVisible(false)}>❌</button>   
             </div>
 
 

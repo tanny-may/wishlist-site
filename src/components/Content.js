@@ -35,12 +35,12 @@ function Content(props) {
 
     return (
         <div className='content-div'>
-            <div className='filtersAndCart'>
+            <div className='filtersAndCart' style={{opacity: visible ? 0.1 : 1}}>
                 <Filters filter={filter} filterButtons ={props.filterValues} handleFilterClick={(event => setFilter(event.target.textContent.trim().toLowerCase()))}/>
                 <button onClick={()=>setVisible(true)}>Wishlist❤️<span>{wishlist.length}</span></button>
             </div>
 
-            <div className='cards'>
+            <div className='cards' style={{opacity: visible ? 0.1 : 1}}>
                 {data.map(el => {
                     let inWishlist = wishlist.some(wishlistElem => wishlistElem.name === el.name);
                     

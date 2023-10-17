@@ -77,6 +77,7 @@ h1 {
   justify-content : space-between;
   flex-wrap: wrap;
   margin-top: 4vh;
+  position: relative;
 }
 
 .filtersAndCart {
@@ -150,24 +151,19 @@ h1 {
   box-shadow: 5px 5px 5px 0px rgba(255, 101, 252, 0.349);
 }
 
-/* .card-button:hover {
-  background-color: rgb(255, 202, 255); 
-  transition: 0.7s;
-}
-
-.card-button:active {
-  background-color: rgb(104, 67, 107);
-  color: #fff; */
-/* } */
 
                                             /* WISHLIST COMPONENT STYLES */
 .wishlist-div {
   display: flex;
   border-radius: 6vh;
   border: 1px solid rgb(46, 30, 47);
-  box-shadow: 5px 5px 15px 5px rgba(255, 101, 252, 0.349);
-  padding: 10vh;
-  width: 120vh;
+  box-shadow: 5px 5px 15px 25px rgba(255, 101, 252, 0.349);
+  padding: 6vh;
+  width: 114vh;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  background-color: rgb(255, 255, 255);
 }
 
 .wishlist-h1 {
@@ -186,16 +182,6 @@ h1 {
 .buttonsWishlist {
   display: flex;
   justify-content: space-between;
-}
-
-.wishlistClose {
-  all: unset;
-  cursor: pointer;
-}
-
-.wishlistClose:hover {
-  all: unset;
-  
 }
 
 .wishlistCards {
