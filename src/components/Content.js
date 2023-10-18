@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Card from './Card';
 import Filters from './Filters';
 import WishList from './WishList';
+import { showWishlist } from '../store';
 
 const items = [
     {
@@ -249,6 +250,8 @@ const items = [
 
 
 function Content() {
+    const dispatch = useDispatch();
+
     const page = useSelector((state) => state.common.page);
     let data = items.filter(i => i.page === page);
     
@@ -258,8 +261,9 @@ function Content() {
         data = data.filter(el => el.parameter.toLowerCase() === filter)
     }
 
+    const wishlistVisible = useSelector((state) => state.common.wishlistVisible);
+
     const [wishlist, setWishlist] = useState([]);   
-    const [visible, setVisible] = useState(false);
 
     function addToWishList(item) {
         function handler () {
@@ -278,12 +282,12 @@ function Content() {
 
     return (
         <div className='content-div'>
-            <div className='filtersAndCart' style={{opacity: visible ? 0.1 : 1}}>
+            <div className='filtersAndCart' style={{opacity: wishlistVisible ? 0.1 : 1}}>
                 <Filters/>
-                <button onClick={()=>setVisible(true)}>Wishlist❤️<span>{wishlist.length}</span></button>
+                <button onClick={()=>dispatch(showWishlist())}>Wishlist❤️<span>{wishlist.length}</span></button>
             </div>
 
-            <div className='cards' style={{opacity: visible ? 0.1 : 1}}>
+            <div className='cards' style={{opacity: wishlistVisible ? 0.1 : 1}}>
                 {data.map(el => {
                     let inWishlist = wishlist.some(wishlistElem => wishlistElem.name === el.name);
                     
@@ -300,7 +304,7 @@ function Content() {
                 
             </div>
 
-            <WishList visible={visible} setVisible={setVisible} wishlist={wishlist} deleteFromWishList={deleteFromWishList} setWishlist={setWishlist}></WishList>
+            <WishList wishlist={wishlist} deleteFromWishList={deleteFromWishList} setWishlist={setWishlist}></WishList>
         </div>
     );
 }

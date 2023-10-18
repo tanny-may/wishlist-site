@@ -1,12 +1,17 @@
 import React from 'react';
 import {CardWishlist} from './Card';
+import { useSelector, useDispatch } from 'react-redux';
+import { hideWishlist } from '../store';
 
-function Wishlist({visible, setVisible, wishlist, setWishlist, deleteFromWishList}) {
+
+function Wishlist({wishlist, setWishlist, deleteFromWishList}) {
+    const dispatch = useDispatch();
+    const wishlistVisible = useSelector((state) => state.common.wishlistVisible);
     return (
-        <div className='wishlist-div' style={{display: visible ? 'block' : 'none'}}>
+        <div className='wishlist-div' style={{display: wishlistVisible ? 'block' : 'none'}}>
             <div className='headerAndClose'>
                 <h1 className='wishlist-h1'>My Wishlist</h1>
-                <button onClick={() => setVisible(false)}>❌</button>   
+                <button onClick={() => dispatch(hideWishlist())}>❌</button>   
             </div>
 
 
