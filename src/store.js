@@ -6,6 +6,7 @@ const commonSlice = createSlice({
     page: 'stickers',
     filter: undefined,  // не обязательно это указывать
     wishlistVisible: false,
+    wishlist: [],
   },
   reducers: {
     choosePage: (state, action) => {
@@ -23,7 +24,15 @@ const commonSlice = createSlice({
     hideWishlist: (state) => {
         state.wishlistVisible = false;
     },
-
+    addToWishlist: (state, action) => {
+        state.wishlist.push(action.payload);
+    },
+    deleteFromWishlist: (state, action) => {
+        state.wishlist = state.wishlist.filter(el => el.name !== action.payload.name);
+    },
+    clearWishlist: (state) => {
+        state.wishlist = [];
+    }
   },
 })
 
@@ -34,4 +43,13 @@ export default configureStore({
   },
 })
 
-export const { choosePage, setFilter, setDefaultFilter, showWishlist, hideWishlist } = commonSlice.actions;
+export const { 
+  choosePage, 
+  setFilter, 
+  setDefaultFilter, 
+  showWishlist, 
+  hideWishlist, 
+  addToWishlist, 
+  deleteFromWishlist, 
+  clearWishlist 
+} = commonSlice.actions;

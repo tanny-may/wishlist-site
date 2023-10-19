@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from './Card';
 import Filters from './Filters';
 import WishList from './WishList';
 import { showWishlist } from '../store';
+
 
 const items = [
     {
@@ -262,23 +263,7 @@ function Content() {
     }
 
     const wishlistVisible = useSelector((state) => state.common.wishlistVisible);
-
-    const [wishlist, setWishlist] = useState([]);   
-
-    function addToWishList(item) {
-        function handler () {
-            setWishlist([...wishlist, item])
-        }
-        return handler;
-    } 
-
-    function deleteFromWishList(item) {
-        function handler () {
-            setWishlist(wishlist.filter(el => el.name !== item.name))
-        }
-        return handler;
-    } 
-
+    const wishlist = useSelector((state) => state.common.wishlist);
 
     return (
         <div className='content-div'>
@@ -289,22 +274,15 @@ function Content() {
 
             <div className='cards' style={{opacity: wishlistVisible ? 0.1 : 1}}>
                 {data.map(el => {
-                    let inWishlist = wishlist.some(wishlistElem => wishlistElem.name === el.name);
-                    
                     return <Card 
-                        key={el.name} 
-                        src={el.src} 
-                        parameter={el.parameter} 
-                        name={el.name} 
-                        handleClick={inWishlist ? deleteFromWishList(el) : addToWishList(el)}
-                        buttonText={inWishlist ? 'Delete from wishlist' : 'Add to wishlist'}
-                        style={inWishlist ? {backgroundColor: 'rgb(255, 203, 255)', color: "rgb(46, 30, 47)"} :{backgroundColor: 'rgb(255, 158, 255)', color: "white"}}
+                        item={el}
+                        key={el.name}
                     ></Card>
                 })}
                 
             </div>
 
-            <WishList wishlist={wishlist} deleteFromWishList={deleteFromWishList} setWishlist={setWishlist}></WishList>
+            <WishList></WishList>
         </div>
     );
 }

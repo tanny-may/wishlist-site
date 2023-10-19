@@ -1,12 +1,13 @@
 import React from 'react';
 import {CardWishlist} from './Card';
 import { useSelector, useDispatch } from 'react-redux';
-import { hideWishlist } from '../store';
+import { hideWishlist, clearWishlist } from '../store';
 
 
-function Wishlist({wishlist, setWishlist, deleteFromWishList}) {
+function Wishlist() {
     const dispatch = useDispatch();
     const wishlistVisible = useSelector((state) => state.common.wishlistVisible);
+    const wishlist = useSelector((state) => state.common.wishlist);
     return (
         <div className='wishlist-div' style={{display: wishlistVisible ? 'block' : 'none'}}>
             <div className='headerAndClose'>
@@ -18,18 +19,14 @@ function Wishlist({wishlist, setWishlist, deleteFromWishList}) {
             <div className='wishlistCards'>
                 {wishlist.map(el => {
                     return <CardWishlist 
+                        item={el}
                         key={el.name} 
-                        src={el.src} 
-                        name={el.name} 
-                        handleClick={deleteFromWishList(el)}
-                        buttonText={'Delete'}
-                        style={{backgroundColor: 'rgb(255, 203, 255)', color: "rgb(46, 30, 47)"}}
                     ></CardWishlist>
                 })}    
             </div>
 
             <div className='buttonsWishlist'>
-                <button className='closeWishlist' onClick={() => setWishlist([])}>Delete wishlist</button>
+                <button className='closeWishlist' onClick={() => dispatch(clearWishlist())}>Clear wishlist</button>
                 <button className='shareWishlist'>Share wishlist</button>       
             </div>
 
