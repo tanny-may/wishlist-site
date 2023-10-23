@@ -51,5 +51,6 @@ export const {
   hideWishlist, 
   addToWishlist, 
   deleteFromWishlist, 
-  clearWishlist 
+  clearWishlist,
+  loadItems
 } = commonSlice.actions;
