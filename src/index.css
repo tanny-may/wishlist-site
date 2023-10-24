@@ -80,7 +80,7 @@ h1 {
   position: relative;
 }
 
-.filtersAndCart {
+.filtersSortWishlist {
   display: flex;
   justify-content : space-between;
   align-items: baseline

@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from './Card';
 import Filters from './Filters';
+import Sort from './Sort';
 import WishList from './WishList';
 import { showWishlist } from '../store';
-
-
 
 // const items = [
 //     {
@@ -250,7 +249,6 @@ import { showWishlist } from '../store';
 //     },
 //   ];
 
-
 function Content() {
     const [items, setItems] = useState([])
     useEffect(() => {
@@ -273,14 +271,18 @@ function Content() {
         data = data.filter(el => el.parameter.toLowerCase() === filter)
     }
 
+    const sortOrder = useSelector((state) => state.common.sortOrder);
+    data.sort((a, b) => sortOrder === 1 ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
+
     const wishlistVisible = useSelector((state) => state.common.wishlistVisible);
     const wishlist = useSelector((state) => state.common.wishlist);
 
     return (
         <div className='content-div'>
-            <div className='filtersAndCart' style={{opacity: wishlistVisible ? 0.1 : 1}}>
-                <Filters/>
-                <button onClick={()=>dispatch(showWishlist())}>Wishlist❤️<span>{wishlist.length}</span></button>
+            <div className='filtersSortWishlist' style={{opacity: wishlistVisible ? 0.1 : 1}}>
+              <Filters/>
+              <Sort/>
+              <button onClick={()=>dispatch(showWishlist())}>Wishlist❤️<span>{wishlist.length}</span></button>
             </div>
 
             <div className='cards' style={{opacity: wishlistVisible ? 0.1 : 1}}>

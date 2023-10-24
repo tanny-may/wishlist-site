@@ -22,7 +22,7 @@ function Filters() {
     const dispatch = useDispatch();
     const filter = useSelector((state) => state.common.filter);
     const page = useSelector((state) => state.common.page);
-    console.log(page)
+
     let filterValues, defaultFilter;
     switch(page) {
       case 'toys':
@@ -56,15 +56,15 @@ function Filters() {
     }
 
     return (
-        <div>Filter {"  "} {filterValues.map(btn => <span key={btn}>
-            <button 
-                onClick={() => dispatch(setFilter(btn))}
-                className={filter === btn.toLowerCase() ? 'activeFilter' : 'filter'}>
-                {btn}
-            </button> {" "}
-            </span>
-            )}
-        </div>
+      <div>Filter: {"  "} {filterValues.map(btn => <span key={btn}>
+          <button 
+              onClick={() => dispatch(setFilter(btn))}
+              className={filter === btn.toLowerCase() ? 'activeFilter' : 'filter'}>
+              {btn}
+          </button> {" "}
+          </span>
+          )}
+      </div>
     )
 }
 
