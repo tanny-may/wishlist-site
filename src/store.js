@@ -8,6 +8,7 @@ const commonSlice = createSlice({
     sortOrder: 1,
     wishlistVisible: false,
     wishlist: [],
+    currentPage: 1,
   },
   reducers: {
     choosePage: (state, action) => {
@@ -39,6 +40,9 @@ const commonSlice = createSlice({
     },
     clearWishlist: (state) => {
         state.wishlist = [];
+    },
+    setCurrentPage: (state, action) => {
+        state.currentPage = action.payload;
     }
   },
 })
@@ -61,5 +65,6 @@ export const {
   addToWishlist, 
   deleteFromWishlist, 
   clearWishlist,
-  loadItems
+  loadItems,
+  setCurrentPage,
 } = commonSlice.actions;

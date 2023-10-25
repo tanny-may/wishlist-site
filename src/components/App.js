@@ -1,12 +1,11 @@
 import Content from './Content';
 import Navigation from './Navigation';
 
-
 function App() {
 
 	return (
     <div>
-      <h1>Bubu and Dudu souveniers Website!</h1>
+      <h1>Bubu and Dudu wishlist Website!</h1>
       <Navigation/>
       <Content/>
       <h1>Thank you for your attention</h1>

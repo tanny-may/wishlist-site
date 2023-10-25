@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { choosePage } from '../store';
+import { choosePage, setCurrentPage } from '../store';
 
 const pages = ['stickers', 'toys', 'pillows', 't-shirts', 'posters'];
 
@@ -11,7 +11,19 @@ function Navigation() {
     return (
         <nav className="menu">
             <ul className='nav-ul'>
-                {pages.map(el => <li key={el} onClick={() => dispatch(choosePage(el))} className='nav-li'><a href='/#' className={page === el.toLowerCase() ? 'nav-a activeMenu' : 'nav-a'}>{el}</a></li>)}
+                {pages.map(el => 
+                    <li 
+                        key={el} 
+                        onClick={() => {
+                            dispatch(choosePage(el));
+                            dispatch(setCurrentPage(1))
+                        }}
+                        className='nav-li'>
+                            <a 
+                                href='/#' 
+                                className={page === el.toLowerCase() ? 'nav-a activeMenu' : 'nav-a'}>{el}
+                            </a>
+                    </li>)}
             </ul>
         </nav>
     );

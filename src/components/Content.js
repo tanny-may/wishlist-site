@@ -4,6 +4,7 @@ import Card from './Card';
 import Filters from './Filters';
 import Sort from './Sort';
 import WishList from './WishList';
+import Pagination from './Pagination';
 import { showWishlist } from '../store';
 
 // const items = [
@@ -249,6 +250,8 @@ import { showWishlist } from '../store';
 //     },
 //   ];
 
+const pageSize = 4;
+
 function Content() {
     const [items, setItems] = useState([])
     useEffect(() => {
@@ -256,7 +259,6 @@ function Content() {
       .then((response) => response.json())
       .then((data) => {
         setItems(data);
-        console.log(data);
       })
     }, [])
     const dispatch = useDispatch();
@@ -270,9 +272,13 @@ function Content() {
     if (filter !== defaultFilter) {
         data = data.filter(el => el.parameter.toLowerCase() === filter)
     }
+    const itemsLength = data.length;
 
     const sortOrder = useSelector((state) => state.common.sortOrder);
     data.sort((a, b) => sortOrder === 1 ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
+
+    const pageNumber = useSelector(state => state.common.currentPage);
+    data = data.slice(pageNumber * pageSize - pageSize, pageNumber * pageSize)
 
     const wishlistVisible = useSelector((state) => state.common.wishlistVisible);
     const wishlist = useSelector((state) => state.common.wishlist);
@@ -296,6 +302,8 @@ function Content() {
             </div>
 
             <WishList></WishList>
+
+            <Pagination pageSize={pageSize} itemsLength={itemsLength} />
         </div>
     );
 }

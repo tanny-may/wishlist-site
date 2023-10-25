@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilter, setDefaultFilter } from "../store";
+import { setFilter, setDefaultFilter, setCurrentPage } from "../store";
 
 const stickerFilters = ['All stickers', 'Transparent background', 'Colorful background'];
 const defaultStickerFilter = 'All stickers';
@@ -58,7 +58,10 @@ function Filters() {
     return (
       <div>Filter: {"  "} {filterValues.map(btn => <span key={btn}>
           <button 
-              onClick={() => dispatch(setFilter(btn))}
+              onClick={() => {
+                dispatch(setFilter(btn));
+                dispatch(setCurrentPage(1))
+              }}
               className={filter === btn.toLowerCase() ? 'activeFilter' : 'filter'}>
               {btn}
           </button> {" "}
