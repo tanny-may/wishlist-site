@@ -7,13 +7,19 @@ const Pagination = ({ pageSize, itemsLength }) => {
   const currentPage = useSelector((state) => state.common.currentPage);
   const [pageNumberGroup, setPageNumberGroup] = useState([]);
 
-  useEffect(() => setPageNumberGroup(
-    getPageNumberGroup(currentPage, itemsLength, pageSize)
-    ), [currentPage, itemsLength, pageSize]);
+  useEffect(
+    () =>
+      setPageNumberGroup(
+        getPageNumberGroup(currentPage, itemsLength, pageSize)
+      ),
+    [currentPage, itemsLength, pageSize]
+  );
 
-   const getPageNumberGroup = (currentPage, itemsLength, pageSize) => {
+  const getPageNumberGroup = (currentPage, itemsLength, pageSize) => {
     let start = Math.floor((currentPage - 1) / 3) * 3;
-    return new Array(Math.min(3, Math.ceil(itemsLength / pageSize))).fill(" ").map((_, index) => start + index + 1);
+    return new Array(Math.min(3, Math.ceil(itemsLength / pageSize)))
+      .fill(" ")
+      .map((_, index) => start + index + 1);
   };
 
   return (
@@ -23,7 +29,9 @@ const Pagination = ({ pageSize, itemsLength }) => {
           {pageNumberGroup.map((value, index) => {
             return (
               <li
-                className={`page-number ${currentPage === value ? "active" : ""} `}
+                className={`page-number ${
+                  currentPage === value ? "active" : ""
+                } `}
                 key={index}
                 onClick={() => dispatch(setCurrentPage(value))}
               >
@@ -34,7 +42,7 @@ const Pagination = ({ pageSize, itemsLength }) => {
         </ul>
       </div>
     </div>
-  )
+  );
 };
 
 export default Pagination;

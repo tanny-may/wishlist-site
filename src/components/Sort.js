@@ -10,7 +10,8 @@ function Sort() {
     return (
         <div>Sort by: {"  "}
             <button onClick={() => dispatch(setSortOrderAsc())} className={sortOrder === 1 ? 'activeFilter' : 'filter'}>a — z</button> {"  "}
-            <button onClick={() => dispatch(setSortOrderDsc())} className={sortOrder === -1 ? 'activeFilter' : 'filter'}>z — a</button>
+            <button onClick={() => dispatch(setSortOrderDsc())} className={sortOrder === -1 ? 'activeFilter' : 'filter'}>z — a</button> {"  "}
+            <button onClick={() => dispatch(setSortOrderDsc())} className={sortOrder === 1 ? 'activeFilter' : 'filter'}><i>newest</i></button>
         </div>
     )
 }
