@@ -1,15 +1,22 @@
 import { React } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWishlist, deleteFromWishlist } from "../store";
+import { parseISO } from "date-fns";
 
 function Card({ item }) {
 	const dispatch = useDispatch();
 	const wishlist = useSelector((state) => state.common.wishlist);
-	let inWishlist = wishlist.some((wishlistElem) => wishlistElem.name === item.name);
+	const inWishlist = wishlist.some((wishlistElem) => wishlistElem.name === item.name);
+	const isNew = parseISO(item.date) > parseISO("2023-10-01");
 
 	return (
 		<div className="card-div">
-			<img className="card-new" src="../new.png" alt='new'></img>
+			<img
+				style={isNew ? { display: "flex" } : { display: "none" }}
+				className="card-new"
+				src="../new.png"
+				alt="new"
+			></img>
 			<img className="card-img" src={item.src} alt="name"></img>
 			<h4 className="card-h4">{item.name}</h4>
 			<p className="card-p">{item.parameter}</p>

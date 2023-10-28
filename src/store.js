@@ -5,7 +5,7 @@ const commonSlice = createSlice({
 	initialState: {
 		page: "stickers",
 		filter: undefined, // необязательно указывать
-		sortOrder: 1,
+		sortOrder: "newFirst",
 		wishlistVisible: false,
 		wishlist: [],
 		currentPage: 1,
@@ -20,11 +20,14 @@ const commonSlice = createSlice({
 		setDefaultFilter: (state, action) => {
 			state.defaultFilter = action.payload.toLowerCase();
 		},
+		setSortOrderNew: (state) => {
+			state.sortOrder = "newFirst";
+		},
 		setSortOrderAsc: (state) => {
-			state.sortOrder = 1;
+			state.sortOrder = "aFirst";
 		},
 		setSortOrderDsc: (state) => {
-			state.sortOrder = -1;
+			state.sortOrder = "zFirst";
 		},
 		showWishlist: (state) => {
 			state.wishlistVisible = true;
@@ -59,6 +62,7 @@ export const {
 	setDefaultFilter,
 	setSortOrderAsc,
 	setSortOrderDsc,
+	setSortOrderNew,
 	showWishlist,
 	hideWishlist,
 	addToWishlist,
