@@ -47,8 +47,9 @@ function CardWishlist({ item }) {
 	const dispatch = useDispatch();
 	return (
 		<div className="card-div cardWishlist-div">
+			<h4 className="card-h4 cardWishlist-h4">{item.page.slice(0,-1)}</h4>
 			<img className="card-img cardWishlist-img" src={item.src} alt="name"></img>
-			<h4 className="card-h4 cardWishlist-h4">{item.name}</h4>
+			<p className="card-p cardWishlist-p">{item.name}</p>
 			<button
 				style={{ backgroundColor: "rgb(255, 203, 255)", color: "rgb(46, 30, 47)" }}
 				className="card-button cardWishlist-button"

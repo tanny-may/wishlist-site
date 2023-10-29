@@ -212,7 +212,12 @@ h1 {
 
 .cardWishlist-h4 {
   margin-bottom: 2vh;
-  margin-top: 2vh;
+  margin-top: 1vh;
+}
+
+.cardWishlist-p {
+  font-size: smaller;
+  margin-bottom: 2vh;
 }
 
 .cardWishlist-button {
