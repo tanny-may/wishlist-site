@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilter, setDefaultFilter, setCurrentPage } from "../store";
 
@@ -48,11 +48,15 @@ function Filters() {
 			filterValues = stickerFilters;
 			defaultFilter = defaultStickerFilter;
 	}
-	dispatch(setDefaultFilter(defaultFilter));
+	useEffect(() => {
+		dispatch(setDefaultFilter(defaultFilter));
+	}, [dispatch, defaultFilter]);
 
-	if (!filterValues.map((f) => f.toLowerCase()).includes(filter)) {
-		dispatch(setFilter(defaultFilter));
-	}
+	useEffect(() => {
+		if (!filterValues.map((f) => f.toLowerCase()).includes(filter)) {
+			dispatch(setFilter(defaultFilter));
+		}
+	}, [dispatch, filter, defaultFilter, filterValues]);
 
 	return (
 		<div>
