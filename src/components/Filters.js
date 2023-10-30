@@ -22,32 +22,8 @@ function Filters() {
 	const filter = useSelector((state) => state.common.filter);
 	const page = useSelector((state) => state.common.page);
 
-	let filterValues, defaultFilter;
-	switch (page) {
-		case "toys":
-			filterValues = toysFilters;
-			defaultFilter = defaultToysFilter;
-			break;
+	let [filterValues, defaultFilter] = getFilterValues(page);
 
-		case "pillows":
-			filterValues = pillowsFilters;
-			defaultFilter = defaultPillowsFilter;
-			break;
-
-		case "t-shirts":
-			filterValues = tshirtsFilters;
-			defaultFilter = defaultTshirtsFilter;
-			break;
-
-		case "posters":
-			filterValues = postersFilters;
-			defaultFilter = defaultPostersFilter;
-			break;
-
-		default:
-			filterValues = stickerFilters;
-			defaultFilter = defaultStickerFilter;
-	}
 	useEffect(() => {
 		dispatch(setDefaultFilter(defaultFilter));
 	}, [dispatch, defaultFilter]);
@@ -78,4 +54,18 @@ function Filters() {
 	);
 }
 
+function getFilterValues(page) {
+	switch (page) {
+		case "toys":
+			return [toysFilters, defaultToysFilter];
+		case "pillows":
+			return [pillowsFilters, defaultPillowsFilter];
+		case "t-shirts":
+			return [tshirtsFilters, defaultTshirtsFilter];
+		case "posters":
+			return [postersFilters, defaultPostersFilter];
+		default:
+			return [stickerFilters, defaultStickerFilter];
+	}
+}
 export default Filters;
