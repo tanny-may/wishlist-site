@@ -294,7 +294,16 @@ import { parseISO, compareDesc } from "date-fns";
 const pageSize = 4;
 
 function Content() {
-	const [items, setItems] = useState([]);
+	const dispatch = useDispatch();
+	const page = useSelector((state) => state.common.page);
+	const filter = useSelector((state) => state.common.filter);
+	const defaultFilter = useSelector((state) => state.common.defaultFilter);
+	const sortOrder = useSelector((state) => state.common.sortOrder);
+	const pageNumber = useSelector((state) => state.common.currentPage);
+	const wishlistVisible = useSelector((state) => state.common.wishlistVisible);
+	const wishlist = useSelector((state) => state.common.wishlist);
+
+	let [items, setItems] = useState([]);
 	useEffect(() => {
 		fetch("https://mocki.io/v1/8b1f7527-2831-44b6-a76d-756c19f3bb83")
 			.then((response) => response.json())
@@ -302,30 +311,11 @@ function Content() {
 				setItems(data);
 			});
 	}, []);
-	const dispatch = useDispatch();
 
-	const page = useSelector((state) => state.common.page);
-	let data = items.filter((i) => i.page === page);
-
-	const filter = useSelector((state) => state.common.filter);
-	const defaultFilter = useSelector((state) => state.common.defaultFilter);
-	if (filter !== defaultFilter) {
-		data = data.filter((el) => el.parameter.toLowerCase() === filter);
-	}
-	const itemsLength = data.length;
-
-	const sortOrder = useSelector((state) => state.common.sortOrder);
-	data.sort((a, b) => {
-		if (sortOrder === "newFirst") return compareDesc(parseISO(a.date), parseISO(b.date));
-		else if (sortOrder === "aFirst") return a.name.localeCompare(b.name);
-		else return b.name.localeCompare(a.name);
-	});
-	const pageNumber = useSelector((state) => state.common.currentPage);
-	data = data.slice(pageNumber * pageSize - pageSize, pageNumber * pageSize);
-
-	const wishlistVisible = useSelector((state) => state.common.wishlistVisible);
-	const wishlist = useSelector((state) => state.common.wishlist);
-
+	items = filterItems(items, page, filter, defaultFilter);
+	const totalItemsLength = items.length;
+	items = sortItems(items, sortOrder);
+	items = getPageItems(items, pageNumber);
 	return (
 		<div className="content-div">
 			<div className="filtersSortWishlist" style={{ opacity: wishlistVisible ? 0.1 : 1 }}>
@@ -337,16 +327,37 @@ function Content() {
 			</div>
 
 			<div className="cards" style={{ opacity: wishlistVisible ? 0.1 : 1 }}>
-				{data.map((el) => {
+				{items.map((el) => {
 					return <Card item={el} key={el.name}></Card>;
 				})}
 			</div>
 
 			<WishList></WishList>
 
-			<Pagination pageSize={pageSize} itemsLength={itemsLength} />
+			<Pagination pageSize={pageSize} totalItems={totalItemsLength} />
 		</div>
 	);
+}
+
+function filterItems(items, page, filter, defaultFilter) {
+	let data = items.filter((i) => i.page === page);
+
+	if (filter !== defaultFilter) {
+		data = data.filter((el) => el.parameter.toLowerCase() === filter);
+	}
+	return data;
+}
+
+function sortItems(items, sortOrder) {
+	return items.sort((a, b) => {
+		if (sortOrder === "newFirst") return compareDesc(parseISO(a.date), parseISO(b.date));
+		else if (sortOrder === "aFirst") return a.name.localeCompare(b.name);
+		else return b.name.localeCompare(a.name);
+	});
+}
+
+function getPageItems(items, pageNumber) {
+	return items.slice(pageNumber * pageSize - pageSize, pageNumber * pageSize);
 }
 
 export default Content;

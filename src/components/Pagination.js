@@ -2,20 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentPage } from "../store";
 
-const Pagination = ({ pageSize, itemsLength }) => {
+const Pagination = ({ pageSize, totalItems }) => {
 	const dispatch = useDispatch();
 	const currentPage = useSelector((state) => state.common.currentPage);
 	const [pageNumberGroup, setPageNumberGroup] = useState([]);
 
 	useEffect(
-		() => setPageNumberGroup(getPageNumberGroup(currentPage, itemsLength, pageSize)),
-		[currentPage, itemsLength, pageSize]
+		() => setPageNumberGroup(getPageNumberGroup(currentPage, totalItems, pageSize)),
+		[currentPage, totalItems, pageSize]
 	);
-
-	const getPageNumberGroup = (currentPage, itemsLength, pageSize) => {
-		let start = Math.floor((currentPage - 1) / 3) * 3;
-		return new Array(Math.min(3, Math.ceil(itemsLength / pageSize))).fill(" ").map((_, index) => start + index + 1);
-	};
 
 	return (
 		<div>
@@ -37,5 +32,14 @@ const Pagination = ({ pageSize, itemsLength }) => {
 		</div>
 	);
 };
+
+const pageNumberGroupLimit = 3;
+
+function getPageNumberGroup(currentPage, totalItems, pageSize) {
+	let start = Math.floor((currentPage - 1) / pageNumberGroupLimit) * pageNumberGroupLimit;
+	return new Array(Math.min(pageNumberGroupLimit, Math.ceil(totalItems / pageSize)))
+		.fill(" ")
+		.map((_, index) => start + index + 1);
+}
 
 export default Pagination;
