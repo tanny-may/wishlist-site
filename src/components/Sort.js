@@ -11,21 +11,21 @@ function Sort() {
 			Sort by: {"  "}
 			<button
 				onClick={() => dispatch(setSortOrderNew())}
-				className={sortOrder === "newFirst" ? "activeFilter" : "filter"}
+				className={sortOrder === "newFirst" ? "filters__button--active" : "filters__button"}
 			>
 				<i>newest</i>
 			</button>
 			{"  "}
 			<button
 				onClick={() => dispatch(setSortOrderAsc())}
-				className={sortOrder === "aFirst" ? "activeFilter" : "filter"}
+				className={sortOrder === "aFirst" ? "filters__button--active" : "filters__button"}
 			>
 				a — z
 			</button>{" "}
 			{"  "}
 			<button
 				onClick={() => dispatch(setSortOrderDsc())}
-				className={sortOrder === "zFirst" ? "activeFilter" : "filter"}
+				className={sortOrder === "zFirst" ? "filters__button--active" : "filters__button"}
 			>
 				z — a
 			</button>

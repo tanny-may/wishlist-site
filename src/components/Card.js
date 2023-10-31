@@ -10,16 +10,16 @@ function Card({ item }) {
 	const isNew = parseISO(item.date) > parseISO("2023-10-01");
 
 	return (
-		<div className="card-div">
+		<div className="card__wrapper">
 			<img
 				style={isNew ? { display: "flex" } : { display: "none" }}
-				className="card-new"
+				className="card__img--new"
 				src="../new.png"
 				alt="new"
 			></img>
-			<img className="card-img" src={item.src} alt="name"></img>
-			<h4 className="card-h4">{item.name}</h4>
-			<p className="card-p">{item.parameter}</p>
+			<img className="card__img" src={item.src} alt="name"></img>
+			<h4 className="card__h4">{item.name}</h4>
+			<p className="card__p">{item.parameter}</p>
 			<button
 				style={
 					inWishlist
@@ -32,7 +32,7 @@ function Card({ item }) {
 								color: "white",
 						  }
 				}
-				className="card-button"
+				className="card__button"
 				onClick={() => {
 					dispatch(inWishlist ? deleteFromWishlist(item) : addToWishlist(item));
 				}}
@@ -46,13 +46,13 @@ function Card({ item }) {
 function CardWishlist({ item }) {
 	const dispatch = useDispatch();
 	return (
-		<div className="card-div cardWishlist-div">
-			<h4 className="card-h4 cardWishlist-h4">{item.page.slice(0,-1)}</h4>
-			<img className="card-img cardWishlist-img" src={item.src} alt="name"></img>
-			<p className="card-p cardWishlist-p">{item.name}</p>
+		<div className="card__wrapper card__wrapper--wishlist">
+			<h4 className="card__h4 card__h4--wishlist">{item.page.slice(0,-1)}</h4>
+			<img className="card__img card__img--wishlist" src={item.src} alt="name"></img>
+			<p className="card__p card__p--wishlist">{item.name}</p>
 			<button
 				style={{ backgroundColor: "rgb(255, 203, 255)", color: "rgb(46, 30, 47)" }}
-				className="card-button cardWishlist-button"
+				className="card__button card__button--wishlist"
 				onClick={() => dispatch(deleteFromWishlist(item))}
 			>
 				{"Delete"}

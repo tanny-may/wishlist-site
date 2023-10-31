@@ -317,8 +317,8 @@ function Content() {
 	items = sortItems(items, sortOrder);
 	items = getPageItems(items, pageNumber);
 	return (
-		<div className="content-div">
-			<div className="filtersSortWishlist" style={{ opacity: wishlistVisible ? 0.1 : 1 }}>
+		<div className="content__wrapper">
+			<div className="content__filtersSortWishlist" style={{ opacity: wishlistVisible ? 0.1 : 1 }}>
 				<Filters />
 				<Sort />
 				<button onClick={() => dispatch(showWishlist())}>
@@ -326,7 +326,7 @@ function Content() {
 				</button>
 			</div>
 
-			<div className="cards" style={{ opacity: wishlistVisible ? 0.1 : 1 }}>
+			<div className="content__cards" style={{ opacity: wishlistVisible ? 0.1 : 1 }}>
 				{items.map((el) => {
 					return <Card item={el} key={el.name}></Card>;
 				})}

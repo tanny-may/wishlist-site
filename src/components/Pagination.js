@@ -14,12 +14,12 @@ const Pagination = ({ pageSize, totalItems }) => {
 
 	return (
 		<div>
-			<div className="page-num-container">
-				<ul className="page-num-container list-style-none">
+			<div className="pagination__wrapper">
+				<ul className="pagination__wrapper pagination__wrapper--none">
 					{pageNumberGroup.map((value, index) => {
 						return (
 							<li
-								className={`page-number ${currentPage === value ? "active" : ""} `}
+								className={`pagination__li ${currentPage === value ? "pagination__li--active" : ""} `}
 								key={index}
 								onClick={() => dispatch(setCurrentPage(value))}
 							>

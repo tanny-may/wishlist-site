@@ -44,7 +44,7 @@ function Filters() {
 							dispatch(setFilter(btn));
 							dispatch(setCurrentPage(1));
 						}}
-						className={filter === btn.toLowerCase() ? "activeFilter" : "filter"}
+						className={filter === btn.toLowerCase() ? "filters__button filters__button--active" : "filters__button"}
 					>
 						{btn}
 					</button>{" "}

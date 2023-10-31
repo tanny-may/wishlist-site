@@ -38,7 +38,7 @@ h1 {
   color: rgb(46, 30, 47);
 }
                                             /* NAVIGATION COMPONENT STYLES */
-.nav-ul {
+.nav__ul {
   display: flex;
   justify-content: space-between;
   padding-inline-start: 15vh;
@@ -49,7 +49,7 @@ h1 {
   border-radius: 3vh;
 }
 
-.nav-li {
+.nav__li {
   width: 30vh;
   height: 8vh;
   display: flex;
@@ -59,47 +59,47 @@ h1 {
   border-radius: 3vh;
 }
 
-.nav-li:hover {
+.nav__li:hover {
   border: 1px solid rgb(46, 30, 47);
 }
 
-.nav-a {
+.nav__a {
   color: rgb(46, 30, 47);
 }
 
-.activeMenu {
+.nav__a--active {
   color: #fff;
   text-shadow: 1px 1px 2px rgb(46, 30, 47);
 }
 
                                             /* CONTENT COMPONENT STYLES */
-.content-div {
+.content__wrapper {
   justify-content : space-between;
   flex-wrap: wrap;
   margin-top: 4vh;
   position: relative;
 }
 
-.filtersSortWishlist {
+.content__filtersSortWishlist {
   display: flex;
   justify-content : space-between;
   align-items: baseline
 }
 
-.cards {
+.content__cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
                                             /* FILTERS COMPONENT STYLES */
-.filter {
+.filters__button {
   width: fit-content;
   font-size: 12px;
   background-color: rgb(255, 203, 255);
 }
 
-.activeFilter {
+.filters__button--active {
   width: fit-content;
   font-size: 12px;
   color: #fff;
@@ -107,7 +107,7 @@ h1 {
 }
 
                                             /* CARD COMPONENT STYLES */
-.card-div {
+.card__wrapper {
   border: 1px solid rgb(46, 30, 47);
   border-radius: 6vh;
   margin-top: 4vh;
@@ -124,21 +124,13 @@ h1 {
   position: relative;
 }
 
-.card-new {
+.card__img--new {
   position: absolute;
   right: 0.2vh;
   top: 0.2vh;
 }
 
-.card-h4 {
-  margin-bottom: 0;
-}
-
-.card-p {
-  margin-bottom: 4vh;
-}
-
-.card-img {
+.card__img {
   height: 40vh;
   width: 40vh;
   object-fit: cover;
@@ -146,7 +138,15 @@ h1 {
   box-shadow: 5px 5px 5px 0px rgba(255, 101, 252, 0.162);
 }
 
-.card-button {
+.card__h4 {
+  margin-bottom: 0;
+}
+
+.card__p {
+  margin-bottom: 4vh;
+}
+
+.card__button {
   height: 6vh;
   width: 30vh;
   background-color: rgb(255, 158, 255);
@@ -160,7 +160,7 @@ h1 {
 
 
                                             /* WISHLIST COMPONENT STYLES */
-.wishlist-div {
+.wishlist__wrapper {
   display: flex;
   border-radius: 6vh;
   border: 1px solid rgb(46, 30, 47);
@@ -173,54 +173,54 @@ h1 {
   background-color: rgb(255, 255, 255);
 }
 
-.wishlist-h1 {
+.wishlist__h1 {
   font-size: larger;
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.headerAndClose {
+.wishlist__headerAndClose {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 0;
 }
 
-.buttonsWishlist {
-  display: flex;
-  justify-content: space-between;
-}
-
-.wishlistCards {
+.wishlist__cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-bottom: 6vh;
 }
 
-.cardWishlist-div {
+.wishlist__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__wrapper--wishlist {
   width: 22vh;
   border-radius: 4vh;
   margin-right: 2vh;
 }
 
-.cardWishlist-img {
+.card__img--wishlist {
   width: 18vh;
   height: 18vh;
   border-radius: 2vh;
 }
 
-.cardWishlist-h4 {
+.card__h4--wishlist {
   margin-bottom: 2vh;
   margin-top: 1vh;
 }
 
-.cardWishlist-p {
+.card__p--wishlist {
   font-size: smaller;
   margin-bottom: 2vh;
 }
 
-.cardWishlist-button {
+.card__button--wishlist {
   width: 16vh;
   height: 4vh;
   border-radius: 1vh;
@@ -228,13 +228,13 @@ h1 {
 
 
                                             /* PAGINATION COMPONENT STYLES */
-.page-num-container {
+.pagination__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.page-number {
+.pagination__li {
   border: 1px solid rgb(255, 158, 255);
   border-radius: 2vh;
   width: 6vh;
@@ -245,12 +245,12 @@ h1 {
   cursor: pointer;
 }
 
-.active {
+.pagination__li--active {
   background-color: #ff9eff;
   color: #fff;
 }
 
-.list-style-none {
+.pagination__wrapper--none {
   list-style: none;
   padding-inline-start: 0;
 }

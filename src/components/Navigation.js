@@ -9,8 +9,8 @@ function Navigation() {
 	const dispatch = useDispatch();
 
 	return (
-		<nav className="menu">
-			<ul className="nav-ul">
+		<nav>
+			<ul className="nav__ul">
 				{pages.map((el) => (
 					<li
 						key={el}
@@ -18,9 +18,9 @@ function Navigation() {
 							dispatch(choosePage(el));
 							dispatch(setCurrentPage(1));
 						}}
-						className="nav-li"
+						className="nav__li"
 					>
-						<a href="/#" className={page === el.toLowerCase() ? "nav-a activeMenu" : "nav-a"}>
+						<a href="/#" className={page === el.toLowerCase() ? "nav__a nav__a--active" : "nav__a"}>
 							{el}
 						</a>
 					</li>
