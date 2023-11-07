@@ -1,10 +1,12 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { getDefaultFilter } from "./components/Navigation.js";
 
 const commonSlice = createSlice({
 	name: "common",
 	initialState: {
 		page: "stickers",
-		filter: undefined, // необязательно указывать
+		filter: getDefaultFilter("stickers").toLowerCase(),
+		defaultFilter: getDefaultFilter("stickers").toLowerCase(),
 		sortOrder: "newFirst",
 		wishlistVisible: false,
 		wishlist: [],

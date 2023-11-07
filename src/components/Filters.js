@@ -1,38 +1,12 @@
-import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilter, setDefaultFilter, setCurrentPage } from "../store";
-
-const stickerFilters = ["All stickers", "Transparent background", "Colorful background"];
-const defaultStickerFilter = "All stickers";
-
-const toysFilters = ["All toys", "Soft toy", "Plastic toy"];
-const defaultToysFilter = "All toys";
-
-const pillowsFilters = ["All pillows", "White pillow", "Colorful pillow"];
-const defaultPillowsFilter = "All pillows";
-
-const tshirtsFilters = ["All T-shirts", "Male T-shirt", "Female T-shirt"];
-const defaultTshirtsFilter = "All T-shirts";
-
-const postersFilters = ["All posters", "With frame", "Without frame"];
-const defaultPostersFilter = "All posters";
+import { setFilter, setCurrentPage } from "../store";
 
 function Filters() {
 	const dispatch = useDispatch();
 	const filter = useSelector((state) => state.common.filter);
 	const page = useSelector((state) => state.common.page);
 
-	let [filterValues, defaultFilter] = getFilterValues(page);
-
-	useEffect(() => {
-		dispatch(setDefaultFilter(defaultFilter));
-	}, [dispatch, defaultFilter]);
-
-	useEffect(() => {
-		if (!filterValues.map((f) => f.toLowerCase()).includes(filter)) {
-			dispatch(setFilter(defaultFilter));
-		}
-	}, [dispatch, filter, defaultFilter, filterValues]);
+	let filterValues = getFilterValues(page);
 
 	return (
 		<div>
@@ -57,15 +31,15 @@ function Filters() {
 function getFilterValues(page) {
 	switch (page) {
 		case "toys":
-			return [toysFilters, defaultToysFilter];
+			return ["All toys", "Soft toy", "Plastic toy"];
 		case "pillows":
-			return [pillowsFilters, defaultPillowsFilter];
+			return ["All pillows", "White pillow", "Colorful pillow"];
 		case "t-shirts":
-			return [tshirtsFilters, defaultTshirtsFilter];
+			return ["All T-shirts", "Male T-shirt", "Female T-shirt"];
 		case "posters":
-			return [postersFilters, defaultPostersFilter];
+			return ["All posters", "With frame", "Without frame"];
 		default:
-			return [stickerFilters, defaultStickerFilter];
+			return ["All stickers", "Transparent background", "Colorful background"];
 	}
 }
 export default Filters;
