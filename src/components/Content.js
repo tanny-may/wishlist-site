@@ -332,7 +332,7 @@ function Content() {
 				})}
 			</div>
 
-			<WishList></WishList>
+			{wishlistVisible && <WishList/>}
 
 			<Pagination pageSize={pageSize} totalItems={totalItemsLength} />
 		</div>

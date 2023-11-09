@@ -5,10 +5,9 @@ import { hideWishlist, clearWishlist } from "../store";
 
 function Wishlist() {
 	const dispatch = useDispatch();
-	const wishlistVisible = useSelector((state) => state.common.wishlistVisible);
 	const wishlist = useSelector((state) => state.common.wishlist);
 	return (
-		<div className="wishlist__wrapper" style={{ display: wishlistVisible ? "block" : "none" }}>
+		<div className="wishlist__wrapper">
 			<div className="wishlist__headerAndClose">
 				<h1 className="wishlist__h1">My Wishlist</h1>
 				<button onClick={() => dispatch(hideWishlist())}>❌</button>
@@ -21,9 +20,7 @@ function Wishlist() {
 			</div>
 
 			<div className="wishlist__buttons">
-				<button onClick={() => dispatch(clearWishlist())}>
-					Clear wishlist
-				</button>
+				<button onClick={() => dispatch(clearWishlist())}>Clear wishlist</button>
 				<button>Share wishlist</button>
 			</div>
 		</div>
