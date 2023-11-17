@@ -37,7 +37,7 @@
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [React.js]: https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/![Bubu-and-Dudu-Wishlist](https://github.com/tanny-may/wishlist-site/assets/111642725/470ddeda-d118-4905-beeb-638130d096f3)
+[React-url]: https://reactjs.org/
 [Redux.js]: https://img.shields.io/badge/Redux-%23303846?style=flat&logo=redux&logoColor=%23764ABC
 [Redux-url]: https://redux.js.org/
 [Date-fns.js]: https://img.shields.io/badge/Date--fns-%23770C56?style=flat
