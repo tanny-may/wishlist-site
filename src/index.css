@@ -63,11 +63,16 @@ h1 {
   border: 1px solid rgb(46, 30, 47);
 }
 
-.nav__a {
+.nav__p {
   color: rgb(46, 30, 47);
+  cursor: pointer;
 }
 
-.nav__a--active {
+.nav__p:hover {
+  text-shadow: 0px 0px 6px rgb(171, 111, 175);
+}
+
+.nav__p--active {
   color: #fff;
   text-shadow: 1px 1px 2px rgb(46, 30, 47);
 }

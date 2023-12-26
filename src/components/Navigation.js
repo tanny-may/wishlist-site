@@ -23,9 +23,9 @@ function Navigation() {
 						}}
 						className="nav__li"
 					>
-						<a href="/#" className={page === el.toLowerCase() ? "nav__a nav__a--active" : "nav__a"}>
+						<p className={page === el.toLowerCase() ? "nav__p nav__p--active" : "nav__p"}>
 							{el}
-						</a>
+						</p>
 					</li>
 				))}
 			</ul>
