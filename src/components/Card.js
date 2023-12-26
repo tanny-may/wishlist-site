@@ -14,7 +14,7 @@ function Card({ item }) {
 			<img
 				style={isNew ? { display: "flex" } : { display: "none" }}
 				className="card__img--new"
-				src="../new.png"
+				src="new.png"
 				alt="new"
 			></img>
 			<img className="card__img" src={item.src} alt="name"></img>
