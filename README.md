@@ -1,5 +1,8 @@
 # wishlist-site
 
+## Посмотреть можно здесь 
+https://tanny-may.github.io/wishlist-site/
+
 ## О проекте
 Учебный React-проект сайта создания вишлиста с товарами по мотивам мультиков на YouTube про панду Бубу и медведя Дуду ([youtube](https://www.youtube.com/@Bubuanddudu01)).
 
