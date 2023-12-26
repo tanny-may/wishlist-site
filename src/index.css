@@ -166,7 +166,7 @@ h1 {
 
                                             /* WISHLIST COMPONENT STYLES */
 .wishlist__wrapper {
-  display: flex;
+  display: block;
   border-radius: 6vh;
   border: 1px solid rgb(46, 30, 47);
   box-shadow: 5px 5px 15px 25px rgba(255, 101, 252, 0.349);
