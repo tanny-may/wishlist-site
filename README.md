@@ -1,7 +1,7 @@
 # wishlist-site
 
 ## О проекте
-Учебный проект сайта для создания вишлиста с товарами по мотивам мультиков на YouTube про панду Бубу и медведя Дуду ([youtube](https://www.youtube.com/@Bubuanddudu01)).
+Учебный React-проект сайта создания вишлиста с товарами по мотивам мультиков на YouTube про панду Бубу и медведя Дуду ([youtube](https://www.youtube.com/@Bubuanddudu01)).
 
 ![Bubu-and-Dudu-Wishlist](https://github.com/tanny-may/wishlist-site/assets/111642725/35fb654a-2911-4d11-a136-2d6b2016d7e5)
 
