@@ -43,5 +43,5 @@ https://tanny-may.github.io/wishlist-site/
 [React-url]: https://reactjs.org/
 [Redux.js]: https://img.shields.io/badge/Redux-%23303846?style=flat&logo=redux&logoColor=%23764ABC
 [Redux-url]: https://redux.js.org/
-[Date-fns.js]: https://img.shields.io/badge/Date--fns-%23770C56?style=flat
+[Date-fns.js]: https://img.shields.io/badge/date-fns?style=flat&logo=date-fns&color=%23770C56
 [Date-fns-url]: https://date-fns.org/
